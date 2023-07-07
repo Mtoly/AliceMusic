@@ -1,0 +1,9 @@
+#站点配置中添加以下内容解决刷新404问题
+    location / {
+	    # 前端打包后的静态目录
+        alias /usr/share/nginx/html/;
+        # 解决页面刷新404问题
+        try_files $uri $uri/ /index.html;
+		# 处理上传文件大小
+		client_max_body_size 1000m;
+    }
